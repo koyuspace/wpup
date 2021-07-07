@@ -150,8 +150,7 @@ else:
             os.system("ssh "+host+" reboot")
             print(tcolors.OKGREEN+"Successfully rebooted host "+host+" 🎉️"+tcolors.ENDC)
     elif option == "-p" or option == "--puppyup":
-        os.system("sudo rm /usr/bin/wpup")
-        os.system("sudo wget -O /usr/bin/wpup https://raw.githubusercontent.com/koyuspace/wpup/main/wpup.py?"+str(round(time.time() * 1000)))
-        os.system("sudo chmod +x /usr/bin/wpup")
+        subprocess.Popen(["/usr/bin/wpup-updater"])
+        sys.exit(0)
     else:
         print(tcolors.FAIL+"Error: Unrecognized argument. 😢"+tcolors.ENDC)
