@@ -17,6 +17,7 @@ otherhost:blog
 ```
 --help or -h    :   Show help
 --sysup or -s   :   Upgrade all host systems
+--reboot or -r  :   Reboot all host systems
 --puppyup -p    :   Upgrades to the latest version of wpup
 ```
 

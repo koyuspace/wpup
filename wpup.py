@@ -18,6 +18,7 @@ This is wpup 1.1 written by koyu
 
 --help or -h    :   Show this help
 --sysup or -s   :   Upgrade all host systems
+--reboot or -r  :   Reboot all host systems
 --puppyup -p    :   Upgrades to the latest version of wpup
 """
 
@@ -114,6 +115,8 @@ else:
                 print("--help or -h shows the help. It doesn't require any further arguments.")
             elif "p" in sys.argv[2].replace("--", "").lower():
                 print("--puppyup or -p upgrades your version of wpup. It doesn't require any further arguments.")
+            elif "r" in sys.argv[2].replace("--", "").lower():
+                print("--reboot or -r reboots all your hosts. It doesn't require any further arguments.")
             else:
                 print(tcolors.FAIL+"Error: Couldn't find help entry. 😢"+tcolors.ENDC)
     elif option == "-s" or option == "--sysup":
@@ -135,6 +138,18 @@ else:
             os.system("cat /tmp/updscript | ssh "+host)
             os.remove("/tmp/updscript")
             print(tcolors.OKGREEN+"Successfully upgraded host "+host+" 🎉️"+tcolors.ENDC)
+    elif option == "-r" or option == "--reboot":
+        f = open(os.path.expanduser("~/.wpuprc"), "r")
+        lines = f.readlines()
+        f.close()
+        hosts = []
+        for e in lines:
+            hosts.append(e.split(":")[0])
+        hosts = list(dict.fromkeys(hosts))
+        for host in hosts:
+            os.system("ssh "+host+" reboot")
+            os.remove("/tmp/updscript")
+            print(tcolors.OKGREEN+"Successfully rebooted host "+host+" 🎉️"+tcolors.ENDC)
     elif option == "-p" or option == "--puppyup":
         os.system("sudo rm /usr/bin/wpup")
         os.system("sudo wget -O /usr/bin/wpup https://raw.githubusercontent.com/koyuspace/wpup/main/wpup.py?"+str(round(time.time() * 1000)))
