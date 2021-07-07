@@ -134,7 +134,7 @@ else:
             f.close()
             os.system("cat /tmp/updscript | ssh "+host)
             os.remove("/tmp/updscript")
-            print(tcolors.OKGREEN+"Successfully upgraded host "+host+" "+tcolors.ENDC+" 🎉️")
+            print(tcolors.OKGREEN+"Successfully upgraded host "+host+" 🎉️"+tcolors.ENDC)
     elif option == "-p" or option == "--puppyup":
         os.system("sudo rm /usr/bin/wpup")
         os.system("sudo wget -O /usr/bin/wpup https://raw.githubusercontent.com/koyuspace/wpup/main/wpup.py?"+str(round(time.time() * 1000)))
