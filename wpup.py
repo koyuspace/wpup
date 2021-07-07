@@ -5,6 +5,7 @@ import os.path
 import subprocess
 import pipes
 import sys
+import time
 
 option = ""
 try:
@@ -136,7 +137,7 @@ else:
             print(tcolors.OKGREEN+"Successfully upgraded host "+host+" "+tcolors.ENDC+" 🎉️")
     elif option == "-p" or option == "--puppyup":
         os.system("sudo rm /usr/bin/wpup")
-        os.system("sudo wget -O /usr/bin/wpup https://raw.githubusercontent.com/koyuspace/wpup/main/wpup.py")
+        os.system("sudo wget -O /usr/bin/wpup https://raw.githubusercontent.com/koyuspace/wpup/main/wpup.py?"+str(round(time.time() * 1000)))
         os.system("sudo chmod +x /usr/bin/wpup")
     else:
         print(tcolors.FAIL+"Error: Unrecognized argument. 😢"+tcolors.ENDC)
