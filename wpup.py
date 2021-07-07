@@ -148,7 +148,6 @@ else:
         hosts = list(dict.fromkeys(hosts))
         for host in hosts:
             os.system("ssh "+host+" reboot")
-            os.remove("/tmp/updscript")
             print(tcolors.OKGREEN+"Successfully rebooted host "+host+" 🎉️"+tcolors.ENDC)
     elif option == "-p" or option == "--puppyup":
         os.system("sudo rm /usr/bin/wpup")
