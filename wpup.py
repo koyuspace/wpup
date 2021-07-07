@@ -66,7 +66,7 @@ if option == "":
                         wp --allow-root theme update --all
                         wp --allow-root core update
                         wp --allow-root core update-db
-                        wp --allow-root language core update --all
+                        wp --allow-root language core update
                         wp --allow-root language theme update --all
                         wp --allow-root language plugin update --all
                         chown -R www-data:www-data /var/www/%%path%%
@@ -79,7 +79,7 @@ if option == "":
                         wp --allow-root theme update --all
                         wp --allow-root core update
                         wp --allow-root core update-db
-                        wp --allow-root language core update --all
+                        wp --allow-root language core update
                         wp --allow-root language theme update --all
                         wp --allow-root language plugin update --all
                         chown -R www-data:www-data /var/www/%%path%%
