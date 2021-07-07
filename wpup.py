@@ -151,7 +151,7 @@ else:
             print(tcolors.OKGREEN+"Successfully rebooted host "+host+" 🎉️"+tcolors.ENDC)
     elif option == "-p" or option == "--puppyup":
         if os.geteuid() == 0:
-            subprocess.Popen(["/usr/bin/wpup-updater"])
+            pid = subprocess.Popen(["/usr/bin/wpup-updater"]).pid
             sys.exit(0)
         else:
             print(tcolors.FAIL+"Error: The updater has to be run as root. 😢"+tcolors.ENDC)
