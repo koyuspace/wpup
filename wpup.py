@@ -13,7 +13,7 @@ except:
     pass
 
 help = """
-This is wpup 1.0 written by koyu
+This is wpup 1.1 written by koyu
 
 --help or -h    :   Show this help
 --sysup or -s   :   Upgrade all host systems
@@ -66,6 +66,9 @@ if option == "":
                         wp --allow-root theme update --all
                         wp --allow-root core update
                         wp --allow-root core update-db
+                        wp --allow-root language core update
+                        wp --allow-root language theme update
+                        wp --allow-root language plugin update
                         chown -R www-data:www-data /var/www/%%path%%
                         """
                     else:
@@ -76,6 +79,9 @@ if option == "":
                         wp --allow-root theme update --all
                         wp --allow-root core update
                         wp --allow-root core update-db
+                        wp --allow-root language core update
+                        wp --allow-root language theme update
+                        wp --allow-root language plugin update
                         chown -R www-data:www-data /var/www/%%path%%
                         """
                     f = open("/tmp/updscript", "w+")
