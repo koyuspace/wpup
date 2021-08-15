@@ -44,7 +44,7 @@ class tcolors:
 
 if option == "":
     if not os.path.exists(os.path.expanduser("~/.wpuprc")):
-        print(tcolors.FAIL+"File .wuprc doesn't exist. Please create this file and add your WordPress hosts and the path to your WordPress installation without /var/www/ delimited with a colon line-by-line."+tcolors.ENDC)
+        print(tcolors.FAIL+"File .wpuprc doesn't exist. Please create this file and add your WordPress hosts and the path to your WordPress installation without /var/www/ delimited with a colon line-by-line."+tcolors.ENDC)
     else:
         f = open(os.path.expanduser("~/.wpuprc"), "r")
         lines = f.readlines()
